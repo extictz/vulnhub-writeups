@@ -35,31 +35,56 @@ Ingresamos al panel de inicio de sesión con el usuario cyber y la clave anterio
 
 ![image](https://github.com/user-attachments/assets/1b187aa1-0276-4df4-bcc2-042d60207ba3)
 
-
+# 💻 Paso 6: Command Shell
+Buscamos un command shell en la página y listamos los contenidos.
 
 ![image](https://github.com/user-attachments/assets/f22875dd-e5ca-47a8-9631-f5097d370225)
 
+# 🔄 Paso 7: Shell Reversa
+Ponemos en escucha el puerto 1234 con netcat.
+
 ![image](https://github.com/user-attachments/assets/6b47536a-834b-4231-8916-f39b7034f0a1)
+
+Ejecutamos una shell reversa para obtener acceso remoto.
 
 ![image](https://github.com/user-attachments/assets/4abe10d3-f1ae-40cc-8d00-bfee8a3a54ed)
 
+# 📂 Paso 8: Exploración del Sistema
+Listamos los contenidos y verificamos el sistema operativo.
+
 ![image](https://github.com/user-attachments/assets/f0240078-c108-42de-9cf6-bd9b62e29dee)
+
+# 🔍 Paso 9: Búsqueda de Binarios SUID
+Buscamos binarios con permisos SUID.
 
 ![image](https://github.com/user-attachments/assets/a9dc791e-c27c-4c17-9d09-0196296242bf)
 
+Verificamos los permisos necesarios con getcap.
+
 ![image](https://github.com/user-attachments/assets/72269eb1-a854-4acc-9b95-a16037382e0f)
+
+# 📁 Paso 10: Acceso a Backups
+Accedemos al directorio de backups y listamos los contenidos.
 
 ![image](https://github.com/user-attachments/assets/f64a38aa-5254-43f4-afcd-d0ac8e74359c)
 
+# 📦 Paso 11: Extracción de Contraseña
+Movemos el archivo old_pass.bak al directorio actual y lo leemos.
+
 ![image](https://github.com/user-attachments/assets/bd990cdb-35af-4d3b-9330-1cc65f5f4112)
 
+Obtenemos la siguiente clave:
+
 ![image](https://github.com/user-attachments/assets/745aead0-015d-4d21-87c7-5368299aa8df)
+
+# 🔑 Paso 12: Acceso como Root
+Accedemos como usuario root y leemos el archivo rOOt.txt.
 
 ![image](https://github.com/user-attachments/assets/d6a0d02e-8f87-4351-afe7-36afd44d0420)
 
 ![image](https://github.com/user-attachments/assets/ddbf042b-de80-4d19-b3d1-f5f617a332f6)
 
-
+Espero que este informe te sea útil y fácil de seguir. ¡Buena suerte! 😊
 
 
 
