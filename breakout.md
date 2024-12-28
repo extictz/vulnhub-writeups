@@ -1,9 +1,16 @@
-# EMPEZAMOS
+# 🎯 Informe de Vulneración de la Máquina 10.0.2.4
+# 🚀 Paso 1: Escaneo de Puertos
+Realizamos un escaneo de todos los puertos para identificar los servicios activos en la máquina.
 
 
 ![image](https://github.com/user-attachments/assets/ff412655-2084-4cdd-8441-2985d1900256)
 
 ![image](https://github.com/user-attachments/assets/b1b128b9-a06f-4da5-b517-38fe08045b19)
+
+# 🌐 Paso 2: Acceso a la Página Web
+Accedemos a la página web alojada en la máquina y examinamos el código fuente. Encontramos una clave encriptada al final del código fuente.
+
+🔐 Clave Encriptada:
 
 ![image](https://github.com/user-attachments/assets/ea4d661f-d073-42b3-b331-972ac3af91c0)
 
