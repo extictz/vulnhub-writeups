@@ -1,7 +1,7 @@
-# 🎯 Informe de Vulneración de la Máquina 10.0.2.4
+# 🎯 Informe de Vulneración de la Máquina "BREAKOUT"
+
 # 🚀 Paso 1: Escaneo de Puertos
 Realizamos un escaneo de todos los puertos para identificar los servicios activos en la máquina.
-
 
 ![image](https://github.com/user-attachments/assets/ff412655-2084-4cdd-8441-2985d1900256)
 
@@ -10,19 +10,32 @@ Realizamos un escaneo de todos los puertos para identificar los servicios activo
 # 🌐 Paso 2: Acceso a la Página Web
 Accedemos a la página web alojada en la máquina y examinamos el código fuente. Encontramos una clave encriptada al final del código fuente.
 
-🔐 Clave Encriptada:
-
 ![image](https://github.com/user-attachments/assets/ea4d661f-d073-42b3-b331-972ac3af91c0)
+
+🔐 Clave Encriptada:
 
 ![image](https://github.com/user-attachments/assets/c828b24e-fc00-4827-a4f8-8c97cf42ebd9)
 
+Desencriptamos la clave usando Brainfuck.
+
+# 🔌 Paso 3: Acceso al Puerto 20000
+Accedemos a la web en el puerto 20000 utilizando Firefox.
+
 ![image](https://github.com/user-attachments/assets/3924e332-afac-454d-99bf-39ecabbd6d10)
+
+# 👤 Paso 4: Enumeración de Usuarios
+Usamos enum4linux para enumerar usuarios y encontramos el usuario cyber.
 
 ![image](https://github.com/user-attachments/assets/0bceda66-add5-4628-a1d7-071bdb52fe35)
 
 ![image](https://github.com/user-attachments/assets/cfe0d12f-834a-4dc7-93c2-02680e4413ba)
 
+# 🔐 Paso 5: Acceso al Panel de Inicio de Sesión
+Ingresamos al panel de inicio de sesión con el usuario cyber y la clave anterior desencriptada.
+
 ![image](https://github.com/user-attachments/assets/1b187aa1-0276-4df4-bcc2-042d60207ba3)
+
+
 
 ![image](https://github.com/user-attachments/assets/f22875dd-e5ca-47a8-9631-f5097d370225)
 
