@@ -1,4 +1,4 @@
-# 🎯 Informe de Vulneración de la Máquina "DEVGURU"
+# 🎯 Informe de Vulneración de la Máquina "DEVGURU1"
 # 🕵️‍♂️Fase de Reconocimiento 
 
 Comenzamos con la fase de reconocimiento realizando un escaneo de todas las IPs en la red.
