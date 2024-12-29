@@ -91,8 +91,23 @@ La contraseña esta encriptada, para ello vamos a cambiarla por otra contraseña
 
 ![image](https://github.com/user-attachments/assets/adc7e42b-b5bc-4c28-b389-136df6ff9508)
 
+Vamos a entrar al backend a ver si hay algun panel de inicio de sesion para entrar con nuestro usuario Frank y la contraseña que hemos cambiado
 
+![image](https://github.com/user-attachments/assets/52708407-c2f2-4c67-96cf-43dd16b17ceb)
 
+Me doy cuenta de que la he puesto pero era la encriptada, entonces pongo la contraseña "contact"
+
+![image](https://github.com/user-attachments/assets/19fd30c9-d339-4ad9-8882-ad2da502f74b)
+
+Tenemos un exitoso acceso a la pagina de october
+
+![image](https://github.com/user-attachments/assets/f0373d8e-e699-4e91-82f1-e84242d82510)
+
+Vemos que tenemos acceso a un CMS y podemos poner codigo 
+
+![image](https://github.com/user-attachments/assets/61e6efac-52f1-4536-a3f4-f2edc19676a1)
+
+Procedemos a inyectar codigo
 
 
 
