@@ -51,6 +51,40 @@ Vamos a entrar en el archivo website y vamos a listar el archivo que se nos ha g
 
 Tenemos todos estos archivos pero el que mas me interesa es adminer.php
 
+Viendo todo esto, vemos que esta montado en codigo php
+
+Vamos a probar a entrar al directorio de adminer.php desde la web
+
+![image](https://github.com/user-attachments/assets/33f6fad8-6993-4183-acad-9540b68f5bd9)
+
+Vemos que hay un panel de inicio de sesion
+
+Vamos a ver el codigo fuente en busca de informacion
+
+![image](https://github.com/user-attachments/assets/2734cf0e-681e-4471-b43d-9bf4eaadc455)
+
+Podriamos inyectar un script pero no lo voy a hacer en esta ocasión
+
+Vamos a entrar al archivo config de el archivo del EXTRACTOR 
+
+![image](https://github.com/user-attachments/assets/ce8ce83c-f404-417c-b8a5-9b8d9308945e)
+
+Vemos que tenemos un archivo llamado database.php
+
+Vamos a hacer un nano
+
+![image](https://github.com/user-attachments/assets/6808d241-5738-4d97-997f-872fd6838173)
+
+Como vemos tenemos toda esta informacion para poder acceder a la base de datos de MySQL, que en este caso, es la que necesitamos para entrar como vimos anteriormente.
+
+![image](https://github.com/user-attachments/assets/36d1c33d-0b98-4609-8eb3-ff9e0f914cb1)
+
+Vamos a probar a entrar, en este caso, entramos y veremos una base de datos de adminer
+
+Vamos a revisar la base de datos
+
+
+
 
 
 
