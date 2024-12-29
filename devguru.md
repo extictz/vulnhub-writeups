@@ -384,4 +384,18 @@ Necesitaremos explotar el bypass, entonces buscamos el exploit
 
 ![image](https://github.com/user-attachments/assets/b5e1b0b5-f079-4b60-9a6b-0d84ce1d6c89)
 
+Procedimos a ejecutar un comando que nos crea una shell para poder realizar un superusuario:
+
+![image](https://github.com/user-attachments/assets/9ddb30ec-7293-4156-81e3-95718825620d)
+
+Vemos si estamos: 
+
+![image](https://github.com/user-attachments/assets/7962f128-fdc2-42c1-a39b-37b81b8fc1df)
+
+Ya estamos en el directorio root, como veis hemos conseguido la flag del root
+
+![image](https://github.com/user-attachments/assets/b1ba1ff1-6b91-40f1-a82a-bda48988c63e)
+
+Espero que te haya servido de ayuda <3
+
 
