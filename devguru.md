@@ -11,4 +11,19 @@ Para ello vamos a realizar un escaneo de todas las ips en mi red.
 Encontraríamos la ip victima que la tengo abierta en mi maquina virtual y tiene una ip asignada que es la 10.0.2.7 asignada por la red NAT
 Veriamos que tenemos los puertos abiertos 22(ssh) y 80(http) por ahora.
 
-Vamos a realizar un escaneo de los 
+Vamos a realizar un escaneo de la ip victima mas profundo.
+
+![image](https://github.com/user-attachments/assets/f938fbaa-bd0e-46fe-8b35-dc7704d859c9)
+
+Vemos un enlace que nos da una url
+
+![image](https://github.com/user-attachments/assets/bccf8383-9e24-413d-a332-4a0ab3c3d3fb)
+
+devguru.local
+
+Vamos a irnos a los hosts y vamos a poner el dominio con la ip ya que no lo entiende nuestra maquina
+
+![image](https://github.com/user-attachments/assets/4f25377e-a911-4483-a2e0-ce6f30522076)
+
+
+
