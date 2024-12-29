@@ -280,6 +280,21 @@ Entramos al shell.php correctamente, se quedará la pagina cargando.
 
 ![image](https://github.com/user-attachments/assets/aed0a6ad-83d1-4acb-80a9-55abaab7000c)
 
+Vamos a poner el siguiente comando que nos dejara movernos de una manera mas dinamica y tendremos una shell mejorada
+
+```bash
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+```
+
+Vamos a entrar haciendo un nano en app.ini.bak | SI NO DEJA HACER UN CAT
+
+![image](https://github.com/user-attachments/assets/37da799d-41ac-4d49-927f-e9d44088f966)
+
+Encontramos una URL, un user y una password, asi que lo que se me ocurre es ir a el adminer.php a iniciar sesión
+
+![image](https://github.com/user-attachments/assets/8acc97d0-6067-4485-bfe7-565a0201ee2f)
+
+
 
 
 
