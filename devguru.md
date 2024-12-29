@@ -83,6 +83,15 @@ Vamos a probar a entrar, en este caso, entramos y veremos una base de datos de a
 
 Vamos a revisar la base de datos
 
+![image](https://github.com/user-attachments/assets/ecbcfb54-2758-46e9-8fa9-0554243b073a)
+
+Investigo y me doy cuenta de que hay credenciales de un usuario
+
+La contraseña esta encriptada, para ello vamos a cambiarla por otra contraseña encriptada desde la siguiente pagina web
+
+![image](https://github.com/user-attachments/assets/adc7e42b-b5bc-4c28-b389-136df6ff9508)
+
+
 
 
 
