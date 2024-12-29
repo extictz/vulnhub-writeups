@@ -25,5 +25,34 @@ Vamos a irnos a los hosts y vamos a poner el dominio con la ip ya que no lo enti
 
 ![image](https://github.com/user-attachments/assets/4f25377e-a911-4483-a2e0-ce6f30522076)
 
+Colocamos la ip con el dominio
+
+![image](https://github.com/user-attachments/assets/db1cb272-f0b5-46c8-b362-ba738f5583e5)
+
+Vamos a clonarnos GitTools para probar si hay directorios en la URL.
+
+```bash
+https://github.com/internetwache/GitTools
+```
+
+Una vez hecho esto vamos a ejecutar el gitdumper de la carpeta "Dumper"
+
+![image](https://github.com/user-attachments/assets/36d2a396-ffda-4386-96b3-6597dbda7611)
+
+Vamos a descargar los archivos del dumper con "Extractor"
+
+![image](https://github.com/user-attachments/assets/afdead03-e7da-4d83-9e3a-96adcb343735)
+
+De esta manera todo lo que ha emcontrado el DUMPER lo podremos interpretar con el EXTRACTOR en un archivo que lo podemos abrir.
+
+Vamos a entrar en el archivo website y vamos a listar el archivo que se nos ha generado
+
+![image](https://github.com/user-attachments/assets/45f458fa-907a-4f75-b44a-31c8f4c8e8a8)
+
+Tenemos todos estos archivos pero el que mas me interesa es adminer.php
+
+
+
+
 
 
