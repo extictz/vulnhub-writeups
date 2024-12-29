@@ -1,7 +1,7 @@
 # INICIO DE LA OPERACIÓN
-Fase de Reconocimiento 
+# 🕵️‍♂️Fase de Reconocimiento 
 
-🕵️‍♂️Comenzamos con la fase de reconocimiento realizando un escaneo de todas las IPs en la red.
+Comenzamos con la fase de reconocimiento realizando un escaneo de todas las IPs en la red.
 
 ![image](https://github.com/user-attachments/assets/3eac18c0-4b92-4428-a7df-c09de24c1947)
 
