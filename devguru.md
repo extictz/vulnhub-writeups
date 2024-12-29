@@ -294,8 +294,29 @@ Encontramos una URL, un user y una password, asi que lo que se me ocurre es ir a
 
 ![image](https://github.com/user-attachments/assets/8acc97d0-6067-4485-bfe7-565a0201ee2f)
 
+Vamos a intentar iniciar sesión
 
+![image](https://github.com/user-attachments/assets/108cc0c5-8c8f-4623-8395-51ce25d19777)
 
+No hara falta poner database ya que no nos la ponía en el anterior CAT
+
+Entro a la database de gitea y me pongo a buscar:
+
+![image](https://github.com/user-attachments/assets/74d06770-8963-47dc-a7af-fc84faab1380)
+
+Vemos que tenemos un usuario llamado frank, y tiene una contraseña en hash, vamos a generar una nosotros y se la cambiamos, como anteriormente
+
+![image](https://github.com/user-attachments/assets/72e8866f-ebae-405c-b9c1-59be1d0ef23f)
+
+![image](https://github.com/user-attachments/assets/70650812-25d9-4f6a-acbd-b7b01dc41267)
+
+La sustituimos:
+
+![image](https://github.com/user-attachments/assets/79616d15-e441-4ea3-aeb2-fed8badeeef7)
+
+IMPORTANTE: SI HEMOS CAMBIADO EL HASH TENEMOS QUE PONER EL TIPO DE HASH QUE HEMOS PUESTO, EN ESTE CASO ES BCRYPT:
+
+![image](https://github.com/user-attachments/assets/18f8e57c-e52c-4f1b-a60a-4d3191917871)
 
 
 
